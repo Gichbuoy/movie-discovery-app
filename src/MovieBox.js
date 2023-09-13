@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import axios from 'axios';
 import { Modal, show, Button} from 'react-bootstrap';
 
 const API_IMG="https://image.tmdb.org/t/p/w500/";
@@ -10,8 +11,15 @@ const MovieBox = ({title, poster_path, vote_average, release_date, overview}) =>
     const handleShow=()=>setShow(true);
     const handleClose=()=>setShow(false);
 
+    
 
     return (
+        // <div className="bg-cover bg-center"
+        // style={{
+        //     backgroundImage: `url('https://image.tmdb.org/t/p/original/${poster_path.backdrop_path}')`,
+        //     height: '450px' 
+        // }}>
+
         <div className="card text-center bg-secondary mb-3">
             <div className="card-body">
                 <img className="card-img-top" src={API_IMG+poster_path} alt='' />
@@ -39,6 +47,7 @@ const MovieBox = ({title, poster_path, vote_average, release_date, overview}) =>
                 </div>
             </div>
         </div>
+        // </div>
     )
 }
 
