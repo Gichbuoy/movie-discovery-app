@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 // import axios from 'axios';
-import { Modal, show, Button} from 'react-bootstrap';
+import { Modal, Button} from 'react-bootstrap';
 
 const API_IMG="https://image.tmdb.org/t/p/w500/";
+
 
 const MovieBox = ({title, poster_path, vote_average, release_date, overview}) => {
     
@@ -14,11 +15,21 @@ const MovieBox = ({title, poster_path, vote_average, release_date, overview}) =>
     
 
     return (
-        // <div className="bg-cover bg-center"
-        // style={{
-        //     backgroundImage: `url('https://image.tmdb.org/t/p/original/${poster_path.backdrop_path}')`,
-        //     height: '450px' 
-        // }}>
+        <div>
+            {/* Hero Banner */}
+            <div
+                className="bg-cover bg-center"
+                style={{
+                    backgroundImage: `url('https://www.themoviedb.org/t/p/original/vVpEOvdxVBP2aV166j5Xlvb5Cdc.jpg')`,
+                    height: '450px',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                    display: 'flex'
+                }}
+            >  
+            </div>
+            
+        
 
         <div className="card text-center bg-secondary mb-3">
             <div className="card-body">
@@ -47,8 +58,9 @@ const MovieBox = ({title, poster_path, vote_average, release_date, overview}) =>
                 </div>
             </div>
         </div>
-        // </div>
-    )
+        </div>
+
+    );
 }
 
 export default MovieBox;
