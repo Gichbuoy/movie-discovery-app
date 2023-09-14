@@ -1,86 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import MovieBox from './MovieBox';
-import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-const API_URL="https://api.themoviedb.org/3/movie/popular?api_key=507a6718aec61aa15afe37eafc5071a0"
-const API_SEARCH="https://api.themoviedb.org/3/search/movie?api_key=507a6718aec61aa15afe37eafc5071a0&query"
+import "./App.css";
+import { useState, useEffect } from "react";
+import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Movie from "./pages/Movie";
+import Loader from "./components/Loader";
+import Toastify from "./components/Toastify";
+import MovieSearch from "./components/useMovieSearch";
+import useMovieSearch from "./components/useMovieSearch";
+let apiKey = "507a6718aec61aa15afe37eafc5071a0";
 
 function App() {
-
-  const [movies, setMovies]=useState([]);
-  const [query, setQuery]=useState('');
+  let [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch(API_URL)
-    .then((res)=>res.json())
-    .then(data=>{
-      console.log(data);
-      setMovies(data.results);
-    })
-  }, [])
+    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
+      .then((res) => res.json())
+      .then((data) => setMovies(data.results))
+      .catch((err) => console.log(err));
+  }, []);
 
-  const searchMovie = async(e)=> {
-    e.preventDefault();
-    console.log("Searching");
-    try{
-      const url=`https://api.themoviedb.org/3/search/movie?api_key=507a6718aec61aa15afe37eafc5071a0&query=${query}`;
-      const res= await fetch(url);
-      const data= await res.json();
-      console.log(data);
-      setMovies(data.results);
-    }
-    catch(e){
-      console.log(e);
-    }
-  }
+  const topTen = movies.slice(0, 10);
 
-  // update value in the form
-  const changeHandler=(e)=>{
-    setQuery(e.target.value);
-  }
+  const { searchQuery, setSearchQuery, searchResults, loading } =
+    useMovieSearch(apiKey);
 
   return (
-    <>
-    <Navbar bg="dark" expand="lg" variant="dark">
-      <Container fluid>
-        <Navbar.Brand href="/home">Movie App</Navbar.Brand>
-        <Navbar.Brand href="/home">Trending</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll">
-        </Navbar.Toggle>
-
-          <Navbar.Collapse id="nabarScroll">
-            <Nav className="me-auto my-2 my-lg-3" style={{maxHeight:'100px'}} navbarScroll></Nav>
-
-            <Form className="d-flex" onSubmit={searchMovie} >
-              <FormControl 
-                type="search"
-                placeholder="Movie Search"
-                className="me-2"
-                aria-label="search"
-                name="query"
-                value={query} onChange={changeHandler}
-              >
-              </FormControl>
-              <Button variant="secondary" type="submit">Search</Button>
-            </Form>
-          </Navbar.Collapse>
-      </Container>
-    </Navbar>
-      <div>
-        {movies.length > 0 ?(
-          <div className="container">
-            <div className="grid">
-              {movies.map((movieReq)=>  
-              <MovieBox key={movieReq.id} {...movieReq}/>)}
-            </div>
-          </div>
-        ):(
-          <h2>Sorry, No Movies Found!</h2>
-        )} 
-      </div>
-    </>
+    <BrowserRouter>
+      <Toastify />
+      {!movies || movies.length <= 0 ? (
+        <Loader />
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                topTen={topTen}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                searchResults={searchResults}
+                loading={loading}
+              />
+            }
+          />
+          <Route path="/movie/:id" element={<Movie />} />
+          <Route path="" element={<MovieSearch />} />
+        </Routes>
+      )}
+    </BrowserRouter>
   );
 }
 
