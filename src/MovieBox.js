@@ -15,19 +15,19 @@ const MovieBox = ({title, poster_path, vote_average, release_date, overview}) =>
     
 
     return (
-        <div>
-            {/* Hero Banner */}
-            <div
-                className="bg-cover bg-center"
-                style={{
-                    backgroundImage: `url('https://www.themoviedb.org/t/p/original/vVpEOvdxVBP2aV166j5Xlvb5Cdc.jpg')`,
-                    height: '450px',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    display: 'flex'
-                }}
-            >  
-            </div>
+        // <div>
+        //     {/* Hero Banner */}
+        //     <div
+        //         className="bg-cover bg-center"
+        //         style={{
+        //             backgroundImage: `url('https://www.themoviedb.org/t/p/original/vVpEOvdxVBP2aV166j5Xlvb5Cdc.jpg')`,
+        //             height: '450px',
+        //             backgroundRepeat: 'no-repeat',
+        //             backgroundSize: 'cover',
+        //             display: 'flex'
+        //         }}
+        //     >  
+        //     </div>
             
         
 
@@ -58,7 +58,7 @@ const MovieBox = ({title, poster_path, vote_average, release_date, overview}) =>
                 </div>
             </div>
         </div>
-        </div>
+        // </div>
 
     );
 }

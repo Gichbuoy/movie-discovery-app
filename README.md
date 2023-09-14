@@ -1,23 +1,63 @@
-# Getting Started with Create React App
+## Movie_Discovery App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple movie application built using React. It allows users to browse and search for movies, view movie details, and explore different genres.
 
-## Available Scripts
+### Features
 
-In the project directory, you can run:
+- Browse a list of popular movies.
+- Search for movies by title.
+- View detailed information about each movie.
+- Filter movies by genre.
 
-### `npm start`
+### Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Make sure you have Node.js and npm (Node Package Manager) installed on your system.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Clone this repository to your local machine:
 
-### `npm test`
+```
+git clone https://github.com/Gichbuoy/movie-discovery-app.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Navigate to project directory
+```
+cd movie-discovery-app
+```
+
+Install project dependencies
+```
+npm install
+```
+
+Start the development server
+```
+npm start
+```
+
+Open your web browser and visit http://localhost:3000 to use the app
+
+
+### Usage
+* On the homepage, you'll see a list of popular movies. 
+* You can click on a movie to view its details.
+* Use the search bar to search for movies by title.
+* Explore different genres using the genre filter.
+
+
+### Technologies Used
+* React: JavaScript library for building user interfaces.
+* The Movie Database (TMDb) API: Used to fetch movie data.
+
+
+
+### Contributing
+Contributions are welcome! If you find any bugs or have suggestions for new features, feel free to open an issue or submit a pull request.
+
+### License
+This project is licensed under the MIT License. See the [LICENSE]() file for details.
+
+
+
 
 ### `npm run build`
 
@@ -39,32 +79,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
