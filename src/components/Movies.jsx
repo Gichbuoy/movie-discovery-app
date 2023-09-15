@@ -18,9 +18,9 @@ const Movies = ({ topTen, searchResults, loading }) => {
   };
   console.log(searchResults);
   return (
-    <div className="movies-container">
+    <div data-testid="movie-card" className="movies-container">
       <section>
-        <h3>Featured Movies</h3>
+        <h3 data-testid="movie-title">Featured Movies</h3>
         <Link>
           <span>View more</span>
           <MdOutlineArrowForwardIos />
@@ -95,7 +95,7 @@ const Movies = ({ topTen, searchResults, loading }) => {
                   to={`movie/${x.id}`}
                   key={x.id}
                 >
-                  <div className="svg-box">
+                  <div data-testid="movie-card" className="svg-box">
                     {topTen[0].title === x.title ? (
                       <span>TV Series</span>
                     ) : (

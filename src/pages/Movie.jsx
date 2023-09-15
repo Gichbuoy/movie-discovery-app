@@ -72,7 +72,7 @@ const Movie = () => {
               </div>
               <div className="main">
                 <div className="left">
-                  <p className="about" datatestid="movie-overview">
+                  <p data-testid="movie-overview" className="about" datatestid="movie-overview">
                     {movie.overview}
                   </p>{" "}
                   <br />
